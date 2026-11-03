@@ -1,0 +1,15 @@
+# Showcase fork only (never part of an upstream pull request).
+version: 1
+app:
+  install: "(cd benchexec/tablegenerator/react-table && npm ci)"
+  start: cd benchexec/tablegenerator/react-table && BROWSER=none PORT={port} HOST=0.0.0.0 npm start ../test_integration/expected/big-table.table.html
+  url: http://localhost:{port}
+  readyPath: /
+  readyStatus: 200
+  runtime: node20
+  env:
+    NODE_ENV: development
+    BROWSER: none
+demo:
+  maxVideos: 1
+  beforePass: true
